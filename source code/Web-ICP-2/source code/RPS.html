@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ROCK PAPER SCISSORS</title>
+</head>
+<body> <!-- declaring source to get to the script and perform functions or tasks-->
+<!--   <script src="RPS.js"></script>  -->
+<!-- script tag is used to add source for pereticular task or we can directly write the script-->
+
+<script>
+    var userChoice = prompt("Do you choose rock, paper or scissors?");
+    var computerChoice = Math.random();  <!-- random to chose computer choice -->
+    if (computerChoice <0.34){
+        computerChoice = "rock";
+    }else if(computerChoice <=0.67){
+        computerChoice = "paper";
+    }
+    else{
+        computerChoice = "scissors";
+    }
+    var compare = function(choice1,choice2){
+
+        if(choice1===choice2){
+            return "The result is a tie!";
+        }
+        if(choice1==="rock"){
+            if(choice2==="scissors"){
+                return "rock wins";
+            }
+            else{
+                return "paper wins";
+            }
+        }
+        if(choice1==="paper"){
+            if(choice2==="rock"){
+                return "paper wins";
+            }
+            else{
+                return "scissors wins";
+            }
+        }
+        if(choice1==="scissors"){
+            if(choice2==="rock"){
+                return "rock wins";
+            }
+            else{
+                return "scissors wins";
+            }
+        }
+
+    };
+    document.write("<p>user:" + " " + userChoice + "</p>");
+    document.write("<p>Computer:" + " " + computerChoice + "</p>");
+    var results = compare(userChoice,computerChoice);   <!--  compare function to compare user chouce and computer choice-->
+    document.write("<br><hr><br>" + results);   <!--  documnet.write used to write on the page-->
+                                                <!-- results will return which ever wins -->
+    document.write("<p>Refresh to play again!!!  :):)</p>");
+
+</script>
+</body>
+</html>

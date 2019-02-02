@@ -1,0 +1,23 @@
+/* font-family*/
+h1 {
+    font-family: Play;
+}
+h3 {
+    font-family: Play;
+}
+h2 {
+    font-family: Play;
+}
+
+/*Font-size*/
+body {
+    font-size: 10px;
+}
+
+h1 {
+    text-align: right;
+}
+
+h3 {
+    text-align: end;
+}
