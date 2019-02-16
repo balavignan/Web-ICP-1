@@ -1,0 +1,57 @@
+.calc {
+  width: 385px;
+  height: 540px;
+  margin-top: 60px;
+  padding: 0;
+  border-radius: 4px;
+  *zoom: 1;
+}
+.calc .screen {
+  width: 96%;
+  height: 70px;
+  background: #ecf0f1;
+  margin: 10px auto;
+  border-radius: 2px;
+}
+.calc .screen p {
+  font-size: 20px;
+  color: brown;
+  text-align: right;
+  margin-right: 10px;
+}
+.calc .screen #equation {
+  font-size: 15px;
+}
+.calc .screen #number {
+  font-size: 25px;
+}
+.calc .buttons {
+  width: 96%;
+  height: 64px;
+  margin: 10px auto;
+  border-radius: 4px;
+}
+.calc .buttons .button {
+  background: black;
+  float: left;
+  margin: 0.5px 0.5px;
+  height: 70px;
+  width: 70px;
+  font-size: 40px;
+  font-weight: 400;
+  color: #f9f9f9;
+  text-align: center;
+  padding-top: 8px;
+}
+
+.calc .buttons .button:hover {
+  cursor: pointer;
+  background-color: grey;
+}
+
+.calc .buttons .clear {
+  float: none;
+  clear: both;
+  width: 95%;
+  margin: 0 auto;
+}

@@ -1,0 +1,27 @@
+<html>
+  <head>
+   <title>ToDo</title>
+    <link rel="stylesheet" href="style.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+      <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+  </head>
+  <body ng-app="toDoApp" ng-controller="toDoController" background="http://www.siue.edu/~mhallor/madisonrobertsphotography/background.png">
+    <div id="container">
+      <h1 align="center">To Do List for FEB 2019!</h1>
+      <ol id="items">
+          <div ng-repeat="x in todoList">
+              <li ng-bind="x.todoText"></li>
+              <span id="pending" class="label pending" ng-click="changeToDone($event)" ng-bind="x.status"></span>
+          </div>
+      </ol>
+      <span class="total" ng-bind="totalText"></span>
+      <br/>
+      <input type="text" id="item" ng-model="newitem"/>
+      <button id="add-to-list" ng-click="addItem()">Add to list</button>
+    </div>
+
+  </body>
+</html>
