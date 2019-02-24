@@ -1,0 +1,42 @@
+<div class="parent-container">
+  <div class="child-container">
+    <h2><b>Search for your venue!!
+    </b></h2><br>
+    <form>
+      <div class="form-group">
+        <div class="form-group col-lg-6 col-lg-offset-3 input-group">
+          <input type="text" class="form-control" placeholder="venue name" #venu>
+          <span class="input-group-addon">-</span>
+          <input type="text" class="form-control" placeholder="Place" #place>
+          <span class="input-group-addon">-</span>
+
+        </div><br>
+        <button type="button" class="btn btn primary col-lg-2 col-lg-offset-5 " (click)="getVenues()">Go</button>
+
+      </div>
+    </form>
+  </div>
+</div><br><br>
+<div class="container">
+
+  <div class="panel panel-default col-6">
+    <div class="panel-heading"><b>Where to get</b></div>
+    <div class="panel-body">
+
+      <div *ngFor="let venue of venueList" class="list-group-item clearfix">
+        <div class="pull-left">
+          <h4 class="list-group-item-heading">{{ venue.name }}</h4>
+        </div>
+
+        <span class="pull-right">
+             <a href="http://maps.google.com/maps?saddr={{currentLat}},{{currentLong}}
+             &daddr={{venue.location.formattedAddress[0]}},{{venue.location.formattedAddress[1]}},{{venue.location.formattedAddress[2]}}">
+               <img src="../../assets/google.png" style="width: 30px; height: 30px;"></a>
+      </span>
+
+      </div>
+
+
+    </div>
+  </div>
+</div>

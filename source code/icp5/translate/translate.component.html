@@ -1,0 +1,31 @@
+<div class="container" style="min-height: 705px">
+  <br>
+  <br>
+  <div class="row">
+    <select style="display:inline; margin-right:2%" class=" btn-lg col-6"  id="from_lang" #from_lang>
+      <option *ngFor="let lan of langs" value={{lan.val}}>{{lan.disp}}</option>
+    </select>
+
+    <select style="display:inline; margin-left:2%;margin-right:2%; " class="btn-lg  "  id="to_lang" #to_lang>
+      <option *ngFor="let lan of langs"   value={{lan.val}}>{{lan.disp}}</option>
+    </select>
+    <button (click)="getText()" style="display:inline; margin-left:2%" class="btn bg-primary btn-lg col-2 offset-3" href="\text-trans">Translate</button>
+  </div>
+  <br>
+
+  <div class="row">
+    <div class="col-md-12">
+      <textarea style="min-height: 150px" placeholder="Enter your text here!!" class="form-control" id="from_text" #from_text></textarea>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-md-12">
+      <label><h4> Translated Text</h4> </label>
+      <textarea style="min-height: 150px" class="form-control" id="to_text" #to_text>{{result}}</textarea>
+
+    </div>
+  </div>
+  <br><br>
+</div>
