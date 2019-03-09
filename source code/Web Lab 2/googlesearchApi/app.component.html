@@ -1,0 +1,37 @@
+<html>
+<head>
+</head>
+<body>
+<title>Search to find about!!</title>
+<div class="wiki-container" style =background-color:#fffbff; >
+  <div class="wiki-search">
+    <div class="container text-center">
+      <h1><i class="fa fa-wikipedia-w"></i></h1>
+      <small><em style = font-size:50px;>Google Knowledge Graph Search API </em></small>
+      <form onsubmit="submit()">
+        <div class="input-group">
+          <input type="text" class="form-control" #searchText placeholder="Search..">
+          <button type="button" class="btn btn-info" (click)="submit()">Search</button><br>
+          <i class="fa fa-search"></i>
+        </div>
+      </form>
+
+      <div *ngIf="isLoading" class="loading">
+        <i class="fa fa-spinner fa-pulse"></i>
+      </div>
+    </div>
+
+    <div class="container wiki-pages">
+      <ul class="list-group" *ngFor="let page of pages">
+        <li class="list-group-item">
+          <a href="{{page.page}}" target="_blank" class="btn-block">
+            <h4>{{page.title}}</h4>
+            <p>{{page.body}}</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+</body>
+</html>
