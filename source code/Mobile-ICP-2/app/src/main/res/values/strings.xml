@@ -1,0 +1,59 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">My Order</string>
+    <!--Header text for the toppings [CHAR LIMIT = 12]-->
+
+
+    <!-- Hint text display in the empty field for the user's name [CHAR LIMIT=20] -->
+    <string name="name">Name</string>
+
+    <string name="toppings">Toppings</string>
+    <!-- Hint text display in the empty field for the user's name [CHAR LIMIT=20] -->
+    <string name="whipped_cream">Whipped Cream</string>
+
+    <!-- Hint text display in the empty field for the user's name [CHAR LIMIT=20] -->
+    <string name="chocolate">Chocolate</string>
+
+    <!-- Hint text display in the empty field for the user's name [CHAR LIMIT=20] -->
+    <string name="quantity">Quantity</string>
+
+    <!-- Hint text display in the empty field for the user's name [CHAR LIMIT=5] -->
+    <string name="initial_quantity_value">2</string>
+
+    <!-- Hint text display in the empty field for the user's name [CHAR LIMIT=20] -->
+    <string name="order">Order</string>
+
+    <!--Name format for the order summary. It will be shown in the format of "Name: Kranthi"  where "Kranthi" is the user's name. [CHAR LIMIT=NONE]-->
+    <string name="order_summary_name">Name:<xliff:g id="name" example="Kranthi">%s</xliff:g></string>
+    <!--display "yes" as an answer to any question-->
+    <string name="yes">Yes</string>
+    <!--display "no" as an answer to any question-->
+    <string name="no">No</string>
+    <!-- Whipped Cream for the order summary. Displays in the format "Add Whipped Cream?Yes"[CHAR LIMIT=NONE]-->
+    <string name="order_summary_whipped_cream">Add Whipped Cream? <xliff:g id="addWhippedCream" example="yes">%s</xliff:g></string>
+    <!-- Chocolate for the order summary. Displays in the format "Add Chocolate? Yes"[CHAR LIMIT=NONE]-->
+    <string name="order_summary_chocolate">Add chocolate? <xliff:g id="addChocolate" example="yes">%s</xliff:g></string>
+    <string name="order_summary_quantity"><b>Quantity: </b><xliff:g id="quantity" example="2">%d</xliff:g></string>
+    <string name="order_summary_total_price"><b>Total: </b>$ <xliff:g id="price" example="10">%.2f</xliff:g></string>
+    <string name="thank_you"><b>Thank you!</b></string>
+    <string name="too_much_coffee">Please select less than one hundred cups of coffee</string>
+    <string name="too_little_coffee">Please select atleast one cup of coffee</string>
+
+    <!-- For Pizza -->
+    <string name="Chicken">Chicken</string>
+    <string name="Bacon">Bacon</string>
+    <string name="Pepperoni">Pepperoni</string>
+    <string name="OP">Olives and Pineapple</string>
+
+    <string name="too_many_pizzas">Please select less than 20 Pizzas</string>
+    <string name="too_less_pizzas">Please select atleast 1 Pizza</string>
+    <string name="userNull">User Name is Mandatory</string>
+
+    <!-- For Pizza Order Summary -->
+    <string name="order_summary_chicken"><b>Add Chicken? </b><xliff:g id="addChicken" example="yes">%s</xliff:g></string>
+    <string name="order_summary_bacon"><b>Add Bacon? </b><xliff:g id="addBacon" example="yes">%s</xliff:g></string>
+    <string name="order_summary_pepperoni"><b>Add Pepperoni? </b><xliff:g id="addPepperoni" example="yes">%s</xliff:g></string>
+    <string name="order_summary_op"><b>Add Olives and Pineapple? </b><xliff:g id="addOP" example="yes">%s</xliff:g></string>
+
+    <string name="summaryMessage"><u>Your Order Summary</u></string>
+
+</resources>
