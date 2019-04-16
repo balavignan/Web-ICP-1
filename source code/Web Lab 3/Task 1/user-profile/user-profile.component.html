@@ -1,0 +1,76 @@
+ <user-template></user-template>
+  <br>
+  <div class="container"  >
+    <div class="row">
+    <h2 style="display:inline" class="offset-3 col-5">Profile</h2>
+      <a routerLink="" class="lbutton btn btn-primary" ><i style="font-size: 32px" class="fa fa-lg fa-sign-out"></i></a>
+    </div>
+    <form  [formGroup]="userForm" id="userForm"  name="myForm"   style="background:white;margin-top: 2%; border-style: solid; padding-top: 2%;padding-bottom: 1%" class="offset-3 col-6 lform" >
+      <div id="message" class="success-message" style="display: none">Data Saved</div>
+      <div class="row">
+        <div class="form-group offset-2 col-10">
+          <label class="ast control-label"><strong> Name</strong></label><br>
+          <input  id="Name"  formControlName="Name" type="text" maxlength="50" class="ro col-8 form-control" placeholder="Enter the Name" [ngClass]="{ 'is-invalid': submitted && f.Name.errors }">
+          <div *ngIf="submitted && f.Name.errors" class="invalid-feedback">
+            <div *ngIf="f.Name.errors.required">Name is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group offset-2 col-10">
+          <label class="ast control-label"><strong> Username</strong></label><br>
+          <input  id="UName"  formControlName="UName" type="text" maxlength="50" class="ro col-8 form-control" placeholder="Enter the Username" [ngClass]="{ 'is-invalid': submitted && f.UName.errors }">
+          <div *ngIf="submitted && f.UName.errors" class="invalid-feedback">
+            <div *ngIf="f.UName.errors.required">UserName is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group offset-2 col-10">
+          <label class="ast control-label"><strong> Password</strong></label><br>
+          <input  id="UPassword"  formControlName="UPassword" type="password" maxlength="20" class="ro col-8 form-control" placeholder="Enter the Password" [ngClass]="{ 'is-invalid': submitted && f.UPassword.errors }">
+          <div *ngIf="submitted && f.UPassword.errors" class="invalid-feedback">
+            <div *ngIf="f.UPassword.errors.required">Password is required</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group offset-2 col-10">
+          <label class="ast control-label"><strong> Gender</strong></label><br>
+          <input  id="gender" name="gender" formControlName="gender" type="radio" maxlength="50" class="dis col-1"  checked value="F">Female
+          <input  id="gender" name="gender" formControlName="gender" type="radio" maxlength="50" class="dis col-1"  value="M">Male
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group offset-2 col-10">
+          <label class="ast control-label"><strong> Date Of Birth</strong></label><br>
+          <input  id="dob" formControlName="dob"  type="date" maxlength="50" class="ro col-8 form-control" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }">
+          <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
+            <div *ngIf="f.dob.errors.required">Date Of Birth is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group offset-2 col-10">
+          <label class="ast control-label"><strong> Email</strong></label><br>
+          <input  id="email"  formControlName="email" type="text" maxlength="100" class="ro col-8 form-control" placeholder="Enter the Email address" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="offset-3 col-6">
+          <button id="edit" (click)="onEdit()" class="col-4 lbutton btn btn-primary" style="margin-top: 4%"><i class="fa fa-lg fa-edit"></i></button>
+          <button id="save" (click)="onSave()" class="col-4 lbutton btn btn-success" style="margin-top: 4%"><i class="fa fa-lg fa-save"></i></button>
+          <button (click)="onDelete()" class=" offset-2 col-4 lbutton btn btn-success " style="margin-top: 4%;background-color: red"><i class="fa fa-lg fa-trash"></i> </button>
+
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+

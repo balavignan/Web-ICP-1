@@ -1,0 +1,60 @@
+<div class="container"  >
+  <br>
+
+  <form  [formGroup]="UserForm" (ngSubmit)="onSubmit()" name="myForm" method="get"  style="background:white;margin-top: 2%; border-style: solid; padding-top: 5%;padding-bottom: 5%" class="offset-3 col-6 lform" >
+    <div class="row">
+      <div class="form-group offset-2 col-10">
+        <label class="ast control-label"><strong> Username</strong></label><br>
+        <input  id="UName" formControlName="UName" type="text" maxlength="50" class="form-control col-8" placeholder="Enter the Username" [ngClass]="{ 'is-invalid': (submitted && f.UName.errors)|| login_error }">
+        <div *ngIf="submitted && f.UName.errors" class="invalid-feedback" >
+          <div *ngIf="f.UName.errors != null && f.UName.errors.required">UserName is required</div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group offset-2 col-10">
+        <label class="ast control-label"><strong> Password</strong></label><br>
+        <input  id="UPassword" formControlName="UPassword" type="password" maxlength="20" class="form-control col-8" placeholder="Enter the Password" [ngClass]="{ 'is-invalid': (submitted && f.UPassword.errors)|| login_error }">
+        <div *ngIf="submitted && f.UPassword.errors" class="invalid-feedback">
+          <div *ngIf="f.UPassword.errors != null && f.UPassword.errors.required">Password is required</div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!(f.UPassword.errors!=null || f.UName.errors != null) && login_error" id="error_div" class="offset-2" style="color: red"> <b>invalid login credentials</b></div>
+
+    <div class="row">
+      <div class="offset-2 col-10">
+        <input type="submit" value="Login" class=" col-3 lbutton btn btn-primary" style="margin-top: 4%">
+        <input type="button" value="Sign Up" (click)="onSignUp()" class=" offset-2 col-3 lbutton btn btn-success" style="margin-top: 4%">
+
+      </div>
+    </div>
+
+  </form>
+
+</div>
+<!--
+
+<h2>Login</h2>
+<form [formGroup]="UserForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+      <div *ngIf="f.username.errors.required">Username is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+      <div *ngIf="f.password.errors.required">Password is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <button [disabled]="loading" class="btn btn-primary">Login</button>
+    <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+    <a [routerLink]="['/user-add']" class="btn btn-link">Register</a>
+  </div>
+</form>
+-->

@@ -1,0 +1,26 @@
+<div style="background:lightblue; min-height:730px;">
+    <user-template></user-template>
+    <br>
+    <div class="container" >
+        <div class="row">
+            <h2 style="display:inline" class="offset-3 col-5">TO DO LIST</h2>
+            <a routerLink="" class="lbutton btn btn-primary" ><i style="font-size: 32px" class="fa fa-lg fa-sign-out"></i></a>
+        </div>
+        <div style="border: black;border-style: solid;background-color: white;margin-top: 2%;padding-top: 2%;padding-bottom: 1%;min-height: 600px" class="offset-3 col-6">
+            <div *ngFor="let todo of todos" class="col-12">
+                <h3 style="color: darkorange;display: inline">{{todo.work}}</h3>
+                <button (click)="delete(todo.TodoID,todo.index)"  *ngIf="!todo.isEnrolled" style="position: absolute;float: right;right: 0px" class="col-2 lbutton btn btn-sm btn-success">Done</button>
+                <span  *ngIf="todo.isEnrolled" style="position: absolute;float: right;right: 0px;color: green" class="col-2">enrolled</span>
+
+                <div>
+                    <h5 style="display: inline"> Description: </h5>{{todo.description}}
+                </div>
+                <div> <h5 style="display: inline" > Priority: </h5> {{todo.priority}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
