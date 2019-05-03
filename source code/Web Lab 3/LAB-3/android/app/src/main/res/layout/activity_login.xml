@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
+    android:paddingTop="16dp"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:id="@+id/lblLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Login"
+        android:gravity="center_horizontal"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/lblUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/lblLogin"
+        android:text="Email"/>
+    <EditText
+        android:id="@+id/txtUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblUsername" />
+    <TextView
+        android:id="@+id/lblUsernameError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtUsername"
+        android:textColor="@color/colorRed"
+        android:layout_marginTop="10dp" />
+    <TextView
+        android:id="@+id/lblPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblUsernameError"
+        android:layout_marginTop="10dp"
+        android:text="Password"/>
+    <EditText
+        android:id="@+id/txtPassword"
+        android:inputType="textPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblPassword"/>
+    <TextView
+        android:id="@+id/lblPasswordError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtPassword"
+        android:textColor="@color/colorRed"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblPasswordError"
+        android:layout_centerHorizontal="true"
+        android:text="Login"
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorPrimary"
+        android:onClick="login"/>
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnLogin"
+        android:layout_centerHorizontal="true"
+        android:text="Register"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorGreen"
+        android:onClick="register"/>
+
+    <Button
+        android:id="@+id/btnFacebook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnRegister"
+        android:layout_centerHorizontal="true"
+        android:text="Faceboook"
+        android:layout_marginTop="20dp"
+        android:onClick="faceBookButtonClick"
+        android:textColor="@color/colorWhite"
+        android:background="@color/fbcolor" />
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnRegister"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:visibility="invisible"
+        android:layout_marginBottom="30dp" />
+
+</RelativeLayout>
