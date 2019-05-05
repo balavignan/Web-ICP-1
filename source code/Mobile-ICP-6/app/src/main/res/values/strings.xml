@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Medical Assistance</string>
+    <string name="hint">Tap on mic and speak</string>
+</resources>
