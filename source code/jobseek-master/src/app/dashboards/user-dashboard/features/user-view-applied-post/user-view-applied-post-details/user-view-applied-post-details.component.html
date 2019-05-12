@@ -1,0 +1,63 @@
+<app-user-header [userdata]="userdata"></app-user-header>
+<br>
+<div class="ui grid">
+  <div class="two wide column" style="background-color: transparent; height:750px">
+    <!-- <div style="margin-top: 30px; background-color: lightbalck">
+      <a href="">
+        <h4 class="nav">Hr Profile View</h4>
+      </a>
+    </div>
+    <div style="margin-top: 30px; background-color: lightbalck">
+      <a href="">
+        <h4 class="nav">Chating</h4>
+      </a>
+    </div> -->
+  </div>
+  <div class="eight wide column">
+    <app-user-view-post-deatilssummary [hrpost]=hrpost> </app-user-view-post-deatilssummary>
+  </div>
+  <div class="six wide column">
+
+      <div class="ui card">
+          <div class="content">
+            <div class="header">Status of Selection</div>
+          </div>
+          <div class="content">
+            <h4 class="ui sub header">Activity</h4>
+            <div class="ui small feed">
+              <div class="event">
+                <div class="content">
+                  <div class="summary">
+                     <p *ngIf="isshortlist">Great Job! 👍</p>
+                     <p *ngIf="!isshortlist">Have Patience 😉</p>
+                  </div>
+                </div>
+              </div>
+              <div class="event">
+                <div class="content">
+                  <div class="summary">
+                     <p *ngIf="isshortlist">Congratulations You have Been Selected For the Job</p>
+                     <p *ngIf="!isshortlist">Wait untitl the HR checkcs your profille. Best of Luck</p>
+                  </div>
+                </div>
+              </div>
+              <div class="event">
+                <div class="content">
+                  <div class="summary">
+                     <p *ngIf="isshortlist">Now you can connect to the hr</p>
+                     <p *ngIf="!isshortlist">You can check your invites by clicking chat invites</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="extra content">
+              <button class="ui fluid" [disabled]="!isshortlist" class="btn btn-info" (click)="chatOpenClicked()" [innerText]=" chatOpen ? 'Close Chating' : 'Start Chating' "></button>
+              <input type="button" [ngClass]="{green: isshortlist, red: !isshortlist}" class="ui button basic"  [value]="isshortlist ? 'Shortlisted' : 'pending...'">
+          </div>
+        </div>
+      <div *ngIf="chatOpen" class="ui sticky fixed" style="bottom: 0px;">
+          <app-chat [initiator]="this.userdata" [recepient]="this.hrpost.hrRef"></app-chat>
+      </div>
+  </div>
+</div>

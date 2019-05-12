@@ -1,0 +1,87 @@
+
+<table class="ui fixed table">
+  <thead class="ui centered segment" style="
+        border: 1px #000;
+        display:  block;
+        text-align:  center;
+        width:  50vw;
+        margin:  2px -12px;
+        box-shadow: 2px 7px 7px -6px dimgrey;
+        background-color: ghostwhite;
+        border-radius: .4em .4em;
+    ">Job Details</thead>
+  <tbody>
+    <tr>
+      <td>Job Title:</td>
+      <td>{{hrpost?.title}}</td>
+    </tr>
+    <tr>
+      <td>Job Description:</td>
+      <td>{{hrpost?.description}}</td>
+    </tr>
+    <tr>
+      <td>Company Name:</td>
+      <td>{{hrpost?.companyname}}</td>
+    </tr>
+    <tr>
+      <td>Selection Procedure:</td>
+      <td>{{hrpost?.selectionProcedure}}</td>
+    </tr>
+    <tr>
+      <td>StartDate To Register:</td>
+      <td>{{hrpost?.startdate}}</td>
+    </tr>
+    <tr>
+      <td>EndDate To Register:</td>
+      <td>{{hrpost?.enddate}}</td>
+    </tr>
+    <tr>
+      <td>Skills Required:</td>
+      <td>{{hrpost?.skills}}</td>
+    </tr>
+    <tr>
+      <td>Job Location:</td>
+      <td>{{hrpost?.location}}</td>
+    </tr>
+    <tr>
+      <td>Salary:</td>
+      <td>{{hrpost?.salary}}</td>
+    </tr>
+    <tr>
+      <td>Experinece Required:</td>
+      <td>{{hrpost?.experinece}}</td>
+    </tr>
+    <tr>
+      <td>Date of Joining:</td>
+      <td>{{hrpost?.dateOfJoining}}</td>
+    </tr>
+    <tr>
+      <td>Extra Requirement:</td>
+      <td>{{hrpost?.extraRequirement || 'Not Provided'}}</td>
+    </tr>
+
+    <tr>
+      <td>No Of Job Openings:</td>
+      <td>{{hrpost?.noOfJobOpenings || 'Not Provided'}}</td>
+    </tr>
+    <tr>
+      <td>Company Url:</td>
+      <td>
+        <a target="blank" href="http://{{hrpost?.CompanyUrl}}">{{hrpost?.CompanyUrl}}</a>
+      </td>
+    </tr>
+    <tr>
+      <td>Bond Details:</td>
+      <td>{{hrpost?.bondDetails || 'Not Provided'}}</td>
+    </tr>
+    <tr>
+      <td>Reporting Venue:</td>
+      <td>{{hrpost?.ReportingVenue || 'Not Provided'}}</td>
+    </tr>
+    <tr>
+      <td>Resource Person Contact:</td>
+      <td>{{hrpost?.ResourcePersonContact || 'Not Provided'}}</td>
+    </tr>
+
+  </tbody>
+</table>

@@ -1,0 +1,43 @@
+div.sign-up {
+    height: 100%;
+}
+p{
+  color:red
+}
+.registration-applicant {
+  margin: 2em auto;
+}
+.arrow {
+  position: absolute;
+  top: 50%;
+  width: 3vmin;
+  height: 3vmin;
+  background: transparent;
+  border-top: 1vmin solid #222222;
+  border-right: 1vmin solid #222222;
+  -webkit-box-shadow: 0 0 0 rgb(20, 17, 17);
+  box-shadow: 0 0 0 rgb(20, 17, 17);
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+.arrow.left {
+  left: 3em;
+  -webkit-transform: translate3d(0, -50%, 0) rotate(-135deg);
+  transform: translate3d(0, -50%, 0) rotate(-135deg);
+}
+
+.arrow:hover {
+  border-color: tomato;
+  -webkit-box-shadow: 0.5vmin -0.5vmin 0 white;
+  box-shadow: 0.5vmin -0.5vmin 0 white;
+}
+.arrow:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-40%, -60%) rotate(45deg);
+  transform: translate(-40%, -60%) rotate(45deg);
+  width: 200%;
+  height: 200%;
+}

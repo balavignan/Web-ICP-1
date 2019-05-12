@@ -1,0 +1,25 @@
+<div class="ui very padded container segment">
+  <form class="ui form" [formGroup]="applicantForm">
+    <h4 class="ui dividing header"></h4>
+    <div class="field">
+      <label>Profile Title</label>
+      <div class="field">
+        <input type="text" placeholder="Designation" formControlName="designation" >
+      </div>
+    </div>
+    <div class="field">
+      <label>Experience</label>
+      <div class="field">
+        <input type="text" placeholder="Experience in years" formControlName="totalExperience" >
+      </div>
+    </div>
+    <div class="field">
+      <label>Description</label>
+      <div class="field">
+        <input type="text" placeholder="About your project and your role" formControlName="description" >
+      </div>
+    </div>
+    <button class="ui primary button" type="submit" [disabled]="applicantForm.invalid" (click)="onSubmit()"> Save </button>
+    <button class="ui button" (click)="discardClicked()"> Discard </button>
+  </form>
+</div>

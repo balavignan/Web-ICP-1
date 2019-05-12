@@ -1,0 +1,160 @@
+
+<div class="ui very padded container segment">
+  <div>
+      <button class="fr ui button primary" (click)="chatOpenClicked()">Chat</button>
+      <input type="button" class="fr ui button primary" id="shortlist" (click)="shortlist($event.target.value)" [value]="isShortlisted ? 'Deselect' : 'Shortlisted'" >
+      <br>
+      <h3 class="ui dividing header">Applicant Details</h3>
+  </div>
+  <br>
+    <div class="field">
+        <div class="ui grid">
+            <div class="eight wide column">
+              <h5>Full Name</h5>
+            </div>
+            <div class="eight wide column">
+             <h1>{{userdata.firstName}} {{userdata.lastName }}</h1> 
+            </div>
+          </div>
+          <div class="ui grid">
+            <div class="eight wide column">
+              <h5>Email</h5>
+            </div>
+            <div class="eight wide column">
+              {{userdata.email}}
+            </div>
+          </div>
+          <div class="ui grid">
+            <div class="eight wide column">
+              <h5>Mobile Number</h5>
+            </div>
+            <div class="eight wide column">
+              {{userdata.phone}}
+            </div>
+          </div>
+          <div class="ui grid">
+            <div class="eight wide column">
+              <h5>Date of birth</h5>
+            </div>
+            <div class="eight wide column">
+              {{userdata.dob | date: 'dd/MM/yyyy'}}
+            </div>
+          </div>
+          <div class="ui grid">
+            <div class="eight wide column">
+              <h5>Address</h5>
+            </div>
+            <div class="eight wide column">
+              {{userdata.address}}
+            </div>
+          </div>
+          <div class="ui grid">
+            <div class="eight wide column">
+              <h5>Location</h5>
+            </div>
+            <div class="eight wide column">
+              {{userdata.location}}
+            </div>
+          </div>
+          <div class="ui grid">
+            <div class="eight wide column">
+              <h5>Gender</h5>
+            </div>
+            <div class="eight wide column">
+              {{userdata.gender}}
+            </div>
+          </div>
+    </div>
+  
+    <hr>
+    <div class="field">
+      <h4 class="inline">Education Qualifications</h4>
+      <br>
+      <div *ngFor="let education of userdata.education; let i = index">
+            <div class="ui grid">
+              <div class="eight wide column">
+                <h5>Highest Qualification</h5>
+              </div>
+              <div class="eight wide column">
+                {{userdata.education[i].higherDegreeValue}}
+              </div>
+            </div>
+            <div class="ui grid">
+              <div class="eight wide column">
+                <h5>University/College/School</h5>
+              </div>
+              <div class="eight wide column">
+                {{userdata.education[i].universityName}}
+              </div>
+            </div>
+            <div class="ui grid">
+              <div class="eight wide column">
+                <h5>Passing Year</h5>
+              </div>
+              <div class="eight wide column">
+                {{userdata.education[i].passingYearValue}}
+              </div>
+            </div>
+            <div class="ui grid">
+              <div class="eight wide column">
+                <h5>Percentage</h5>
+              </div>
+              <div class="eight wide column">
+                {{userdata.education[i].percentageValue}}
+              </div>
+            </div>
+        
+          <hr>
+        </div>
+    </div>
+    <hr>
+    <div class="field">
+      <h4 class="inline">Skills</h4>
+      <br>
+      <br> {{userdata.skillValue}}
+    </div>
+    <hr>
+    <div class="field">
+      <h4 class="inline">Experience</h4>
+      <br>
+      <br>
+      <div *ngFor="let experience of userdata.experience; let i = index">
+            <div class="ui grid">
+              <div class="eight wide column">
+                <h5>Profile Title</h5>
+              </div>
+              <div class="eight wide column">
+                {{userdata.experience[i].designation}}
+              </div>
+            </div>
+            <div class="ui grid">
+              <div class="eight wide column">
+                <h5>Experiences</h5>
+              </div>
+              <div class="eight wide column">
+                {{userdata.experience[i].totalExperience}}
+              </div>
+            </div>
+            <div class="ui grid">
+              <div class="eight wide column">
+                <h5>Description</h5>
+              </div>
+              <div class="eight wide column">
+                {{userdata.experience[i].description}}
+              </div>
+            </div>
+
+       
+          <hr>
+        </div>
+    </div>
+    <hr>
+
+  </div>
+  
+
+  <!-- <div *ngIf="chatOpen"  [ngClass]="{'visible': chatOpen , 'active': chatOpen }" class="ui dimmer modals page top aligned transition"
+  style="display: flex !important;">
+  <app-chat [initiator]="this.userdata.hrRef" [recepient]="this.hrpostdata._id"></app-chat> -->
+  <!-- <app-chat-invites></app-chat-invites> -->
+<!-- </div> -->

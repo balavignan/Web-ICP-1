@@ -1,0 +1,14 @@
+<style>
+  div.anim {
+    transition-delay: 100ms;
+    /* position: fixed; */
+    transform-style: preserve-3d;
+    transition-timing-function: ease-in-out;
+  }
+</style>
+<div class="ui info message compact swing animated" style="margin: 2em 2em;position: absolute;top:0%;left:0%;">
+  <div class="header">
+    {{title}}
+  </div>
+    <p>{{message}}</p>
+</div>

@@ -1,0 +1,257 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One|Amatic+SC|Anton|Lobster|Pacifico|Pragati+Narrow|Rammetto+One|Saira+Extra+Condensed');
+* {
+  color: #222222;
+  margin: 0;
+  padding: 0
+}
+
+#loader{
+    background-image: url(assets/loader.svg);
+}
+body {
+  margin: 0;
+  padding: 0;
+  height: 0px;
+}
+
+.tomato {
+  border-color: tomato;
+}
+
+/* font and text */
+
+.text-center {
+  text-align: center;
+}
+
+.self-center {
+  align-self: center;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+input.ng-valid.ng-touched {
+  border: 1px solid green;
+}
+
+@media only screen and (max-width: 600px) {
+  div {
+    text-overflow: ellipsis;
+    font-size: 1vh;
+  }
+}
+
+/* text */
+
+div.mid-body {
+  margin: 11em auto;
+}
+
+.check {
+  border: 2px solid;
+}
+
+.inline {
+  display: inline;
+}
+
+/* Font Family Requires */
+
+.fnt.anton {
+  font-family: 'Anton', sans-serif;
+}
+
+.fnt.saira {
+  font-family: 'Saira Extra Condensed', sans-serif;
+}
+
+.fnt.lobster {
+  font-family: 'Lobster', cursive;
+}
+
+.fnt.pacifico {
+  font-family: 'Pacifico', cursive;
+}
+
+.fnt.rametto {
+  font-family: 'Rammetto One', cursive;
+}
+
+.fnt.amatic {
+  font-family: 'Amatic SC', cursive;
+}
+
+.fnt.alfa {
+  font-family: 'Alfa Slab One', cursive;
+}
+
+.fnt.pragati {
+  font-family: 'Pragati Narrow', sans-serif;
+}
+
+/* Font Family Requires */
+
+/* float left right */
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+/* float left right */
+
+/* Changing line animation */
+
+.abhi.frame {
+  line-height: 2em;
+  width: 50%;
+  border-bottom: 1px solid #212121;
+  border-top: 1px solid #212121;
+}
+
+/* .alp::after {
+    content: '';
+    width:11em;
+    right: 15%;
+    position:absolute;
+    margin: 0 auto;
+    display: block;
+    overflow:hidden;
+    transition-delay: 800ms;
+    transition-timing-function: ease-out;
+}
+.alp::before {
+    content: '';
+    width:11em;
+    right: 15%;
+    margin: 0 auto;
+    position:absolute;
+    display: block;
+    overflow:hidden;
+    transition-delay: 800ms;
+    transition-timing-function: ease-out;
+} */
+
+/* 
+.abhi.frame.flyout {
+    height: 0%;
+} */
+
+/* Changing line animation */
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+input.ng-valid.ng-touched {
+  border: 1px solid green;
+}
+
+a {
+  cursor: pointer;
+}
+
+/* profile picture */
+
+.wrapper {
+  padding: 5px;
+}
+
+.image--cover {
+  width: 150px;
+  height: 150px;
+  border: 1px transparent;
+  border-radius: 50%;
+  margin: 20px;
+  /*   
+    object-fit: cover;
+    object-position: center right; */
+}
+
+.ab.over {
+    position: absolute;
+    top: 101px;
+    right: 17px;
+    border-radius: 50%;
+    visibility: visible;
+    /* transition-delay: 800ms; */
+    /* transform-style: preserve-3d; */
+    transition: all ease-in-out 800ms step-end;
+    cursor: pointer;
+    /* transition-duration: 100ms; */
+    /* transition-timing-function: ease-in-out; */
+}
+/* profile picture */
+
+.ab.button.wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.avatar-upload {
+  position: relative;
+  max-width: 205px;
+  margin: 10px 10px;
+}
+.avatar-upload .avatar-edit {
+  position: absolute;
+  z-index: 1;
+  float: right;
+  top: 10px;
+}
+.avatar-upload .avatar-edit input {
+  display: none;
+}
+.avatar-upload .avatar-edit input + label {
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 0;
+  border-radius: 100%;
+  background: #FFFFFF;
+  border: 1px solid transparent;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  font-weight: normal;
+  transition: all 0.2s ease-in-out;
+}
+.avatar-upload .avatar-edit input + label:hover {
+  background: #f1f1f1;
+  border-color: #d6d6d6;
+}
+.avatar-upload .avatar-edit input + label:after {
+  content: "\f040";
+  font-family: 'FontAwesome';
+  color: #757575;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: auto;
+}
+.avatar-upload .avatar-preview {
+  width: 192px;
+  height: 192px;
+  position: relative;
+  border-radius: 100%;
+  border: 6px solid #f4433663;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+.avatar-upload .avatar-preview > div {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

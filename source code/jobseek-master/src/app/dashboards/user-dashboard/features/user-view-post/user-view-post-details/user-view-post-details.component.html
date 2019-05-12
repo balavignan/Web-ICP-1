@@ -1,0 +1,26 @@
+<app-user-header [userdata]="userdata"></app-user-header>
+<br>
+<div class="ui grid">
+  <div class="three wide column">
+
+  </div>
+  <div class="eight wide column">
+    <app-user-view-post-deatilssummary [hrpost]=hrpost> </app-user-view-post-deatilssummary>
+  </div>
+  <div>
+    <form>
+      <div class="form-group">
+        <input type="radio" value="before CV" (click)="uploadOld()"  name="upload" checked> <label>Submit Old CV</label>
+      </div>
+      <div class="form-group">
+        <input type="radio" value="before CV" (click)="uploadNew()" name="upload" > <label>Upload New CV</label>
+      </div>
+      <div class="form-group" *ngIf="uploadNewCv" >
+        <input type="file"  >
+      </div>
+      <div class="form-group">
+        <button class="btn btn-success"  (click)="applyToPost()">Apply</button>
+      </div>
+    </form>
+  </div>
+</div>

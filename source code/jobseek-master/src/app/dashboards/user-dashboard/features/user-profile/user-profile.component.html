@@ -1,0 +1,247 @@
+<app-user-header [userdata]="userdata"></app-user-header>
+<div class="ui grid centered" style="margin-top: 2%;">
+  <div class="four wide ui segment column grid" style="padding-left: 0%; padding-right: 20px;">
+      
+    <div class="row centered">
+      <div class="avatar-upload">
+        <div class="avatar-edit">
+          <input type="file" id="imageUpload" accept=".png, .jpg, .jpeg" (change)="updateProfilePicture($event.target.files)" />
+          
+          <label for="imageUpload"></label>
+        </div>
+        <div class="avatar-preview">
+          <!-- <div  [ngStyle]="{background: 'url(http://localhost:3000/images/' + ')'}"></div> -->
+          <div id="imagePreview" [ngStyle]="{'background-image': profile_photo_for_viewing}"></div>
+          <!-- <div id="imagePreview" [ngStyle]="{background: 'url(http://localhost:3000/images/' + hrdata.profile_photo + ')'"></div>
+                       -->
+          <!-- {{"url(http://localhost:3000/images/" + {{hrdata.profile_photo}} + ")"}}> -->
+
+        </div>
+        <div class="container ui">
+          <a class="fr" (click)="EditPersonalDetails()" style="float: right;">Edit</a>
+        </div>
+      </div>
+    </div>
+    <div class="row centered">
+      <div class="segment fluid ui" style="width: 100%; border-color: tomato">
+        {{userdata?.firstName}} {{userdata?.lastName }}
+      </div>
+      <div class="ui container fluid">
+        <a class="ui teal image label">
+          <i class="at icon"></i>
+          <div class="detail">{{userdata?.email}}</div>
+        </a>
+      </div>
+      <div class="ui container compact" style="width: fit-content; margin-top: 1em;">
+        <div class="ui celled list">
+          <div class="item">
+            <i class="mobile icon"></i>
+            {{userdata?.phone}}
+          </div>
+          <div class="item">
+            <i class="birthday cake icon"></i>
+            {{userdata?.dob | date: 'dd/MM/yyyy'}}
+          </div>
+          <div class="item">
+            <i class="home icon"></i>
+            {{userdata?.address}}
+          </div>
+          <div class="item">
+            <i class="location arrow icon"></i>
+            {{userdata?.city}},{{userdata?.state}},{{userdata?.country}}
+          </div>
+          <div class="item">
+            <i [ngClass]="{mars: isMale, venus: isFemale, icon: true}"></i>
+            {{userdata?.gender}}
+          </div>
+        </div>
+      </div>
+
+
+      <!-- <div *ngIf="detailsMain">
+      </div> -->
+      <!-- <div  class="long modal" > -->
+      <!-- <app-user-personal-details (discardClick)="closeDetails()" (saveClick)="closeDetails()" [userdata]="userdata"></app-user-personal-details> -->
+      <!-- <div *ngIf="detailsOpen"></div> -->
+      <!-- </div> -->
+
+
+    </div>
+    <div class="row centered">
+    </div>
+  </div>
+
+  <!-- '/../src/assets/images/shared/cartoon.png' -->
+  <!-- <div class="eleven wide ui segment centered column grid" [ngStyle]="{'background-size': !skillActive?'0vh' :'25vh'}" style="margin: 0 0 1em 1em;float: right;background-image: url('assets/images/shared/cartoon.png');background-repeat:  no-repeat;background-position: 26em 28em;background-blend-mode: darken;transition-duration: 800ms;"> -->
+  <div class="eleven wide ui segment centered column grid" style="margin: 0 0 1em 1em;overflow: hidden;scroll-behavior: unset">
+    <div class="ui styled fluid accordion">
+      <!-- Experiences -->
+      <div class="active title" (click)="skillActive = false;">
+        <a class="fr float right" (click)="AddExperienceMore()">Add more Experiences</a>
+        <i class="dropdown icon"></i>
+        Experinces
+      </div>
+      <div class="active content">
+        <div class='panel panel-default' style="overflow: hidden;">
+          <div class="ui long panel-body" style="overflow-y: auto;margin: 0em -1em;padding: 1em 3em;height: 22em;">
+
+            <div *ngFor="let experience of userdata?.experience; let i = index">
+              <a class="ui orange left ribbon label" (click)="editData(i, $event.target.innerText)">
+                    {{ meme == i ? 'Save' : 'Edit'}}
+                   </a>
+                   <div *ngIf="expMain">
+                      <a class="ui orange right ribbon label" (click)="deleteExperience(i);">Delete</a>
+                      <div class="row">
+                        <div class="col-md-3">
+                          <h5>Profile Title</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="ui input">
+                                <input *ngIf="meme == i" type="text" [(ngModel)]="userdata.experience[i].designation">
+                              </div>
+                              <span *ngIf="!(meme == i)">{{userdata.experience[i]?.designation}}</span>
+                            </div>
+                        </div>
+                      <div class="row">
+                        <div class="col-md-3">
+                          <h5>Experience</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="ui input">
+                                <input *ngIf="meme == i" type="text" [(ngModel)]="userdata.experience[i].totalExperience">
+                              </div>
+                              <span *ngIf="!(meme == i)">{{userdata.experience[i]?.totalExperience}}</span>
+                            </div>
+                        </div>
+                      <div class="row">
+                        <div class="col-md-3">
+                          <h5>Description</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="ui input">
+                                <input *ngIf="meme == i" type="text" [(ngModel)]="userdata?.experience[i].description">
+                              </div>
+                              <span *ngIf="!(meme == i)">{{userdata?.experience[i].description}}</span>
+                            </div>
+                        </div>
+      
+                      </div>
+              <hr>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Experiences -->
+      <!-- Educations -->
+      <div class="title" (click)="skillActive = false;">
+        <a class="fr" (click)="AddEducationMore()">Add more Qualification</a>
+        <i class="dropdown icon"></i>
+        Education
+      </div>
+      <div class="content">
+        <div class='panel panel-default'>
+          <div class="panel-body">
+            <div *ngFor="let education of userdata?.education; let i = index;">
+              <div *ngIf="educationMain" class="">
+                <!-- <a class="fr" (click)="EditEducationDetails()">Edit</a> -->
+                <a class="ui orange left ribbon label" (click)="editData(i, $event.target.innerText)">
+                  {{ meme == i ? 'Save' : 'Edit'}}
+                </a>
+                <a class="ui orange right ribbon label" (click)="deleteEducation(i);" style="margin: 0px -52px ">Delete</a>
+                <div class="row">
+                  <div class="col-md-2">
+                    <h5>Highest Qualification</h5>
+                  </div>
+                  <div class="col-md-6 col-md-offset-2">
+                    <div class="ui input">
+                        <select *ngIf="meme == i" class="ui search dropdown"  [(ngModel)]="userdata.education[i].higherDegreeValue">
+                            <option>Select your highest qualification</option>
+                            <option *ngFor="let degree of highestDegreeArray">{{degree}}</option>
+                          </select>
+                    </div>
+                    <span *ngIf="!(meme == i)">{{userdata?.education[i].higherDegreeValue}}</span>
+                    <!-- <span>{{userdata?.education[i].higherDegreeValue}}</span> -->
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-2">
+                    <h5>University/College/School</h5>
+                  </div>
+                  <div class="col-md-6 col-md-offset-2">
+                    <div class="ui input">
+                      <input *ngIf="meme == i" type="text" [(ngModel)]="userdata?.education[i].universityName">
+                    </div>
+                    <span *ngIf="!(meme == i)">{{userdata?.education[i].universityName}}</span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-2">
+                    <h5>Passing Year</h5>
+                  </div>
+                  <div class="col-md-6 col-md-offset-2">
+                      <!-- <select name="gender" > -->
+                      <!-- </select> -->
+                      <select *ngIf="meme == i" class="ui search dropdown" [(ngModel)]="userdata?.education[i].passingYearValue">
+                        <option>Select your option</option>
+                        <option [value]='year' *ngFor="let year of yearArray">{{year}}</option>
+                      </select>
+                  <span *ngIf="!(meme==i)">{{userdata?.education[i].passingYearValue}}</span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-2">
+                    <h5>Percentage</h5>
+                  </div>
+                  <div class="col-md-6 col-md-offset-2">
+                    <div class="ui input">
+                      <input *ngIf="meme==i" type="text" [(ngModel)]="userdata?.education[i].percentageValue">
+                    </div>
+                    <span *ngIf="!(meme==i)">{{userdata?.education[i].percentageValue}}</span>
+                  </div>
+                </div>
+              </div>
+           
+              <hr>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Educations -->
+      <!-- Skills -->
+      <div class="title" (click)="skillActive = true;">
+        <a class="fr" (click)="EditSkillsDetails()">Edit</a>
+        <i class="dropdown icon"></i>
+        Skills
+      </div>
+      <div class="content">
+        <div class='panel panel-default'>
+          <div class="panel-body">
+            <a class="ui orange left ribbon label" (click)="editData(meme1,$event.target.innerText)">
+              {{ meme1? 'Save' : 'Edit'}}
+            </a>
+            <div *ngIf="skillMain">
+              <span *ngIf="!meme1">{{userdata?.skillValue}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Skills -->
+    </div>
+    <div *ngIf="skillActive" [ngClass]="{'animated': true,'fadeInDown': skillActive }" class="ui info fluid message grid centered"
+      style="margin:8em 14em;position: absolute;">
+      {{qod}}
+    </div>
+  </div>
+</div>
+
+
+<hr>
+
+<div *ngIf="detailsOpen || skillOpen || expAdd || educationAdd " [ngClass]="{'ui': true, 'dimmer': true, 'modals': true, 'page': true, 'top': true, 'aligned': true, 'transition': true, 'visible': detailsOpen || skillOpen || expAdd || educationAdd , 'active': detailsOpen || skillOpen || expAdd || educationAdd }"
+  style="display: flex !important;">
+  <app-user-personal-details *ngIf="detailsOpen" (discardClick)="closeDetails($event)" (saveClick)="closeDetails($event)" [userdata]="userdata"></app-user-personal-details>
+  <app-user-skills-details *ngIf="skillOpen" (discardClick)="closeSkill($event)" (saveClick)="closeSkill($event)" [userdata]="userdata"></app-user-skills-details>
+  <app-user-experience-add-details *ngIf="expAdd" (discardClick)="closeAddExp($event)" (saveClick)="closeAddExp($event)" [userdata]="userdata"></app-user-experience-add-details>
+  <app-user-education-add-details *ngIf="educationAdd" (discardClick)="closeAddEducation($event)" (saveClick)="closeAddEducation($event)" [userdata]="userdata"></app-user-education-add-details>
+</div>
+ 

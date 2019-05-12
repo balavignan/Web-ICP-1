@@ -1,0 +1,107 @@
+<app-user-header [userdata]="userdata"></app-user-header>
+
+<div id="bg"></div>
+<div class="ui grid" style="margin: 4em auto;">
+  <div class="ten wide column centered grid ui">
+
+    <div class="row centered fluid">
+   
+      <app-statistics></app-statistics>
+
+    </div>
+
+    <div class="row centered">
+
+      <div class="search-container">
+
+        <div class="form-inline">
+          <div class="form-group">
+            <div class="input-group" style="margin: 0% 2em">
+              <input type="text" [(ngModel)]="searchText" style="height: 45px;width: 350px;" class="form-control" placeholder="Search through Designation,Skills,Company name">
+            </div>
+            <div class="input-group" style="margin: 0% 2em">
+              <input type="text" [(ngModel)]="searchLocation" style="height: 45px;width: 350px;" class="form-control" placeholder="Search through Location">
+            </div>
+            <div class="input-group">
+              <button style="height: 45px;width: 50px;" class="form-control" (click)="searchClicked()">
+                <span class="glyphicon glyphicon-search"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="row centered" style="margin: 2em auto;">
+
+        <!-- <div class="eight wide column"> -->
+          <div *ngIf="jobInfo fluid">
+            <h2>Recommended jobs for you</h2>
+            <div *ngIf='!loadPage && !loadError'>
+              <h4>loading...... please wait</h4>
+              <span>
+                <img src="assets/loader.svg" height="64" alt="Nice green circle" />
+              </span>
+            </div>
+            <h4 *ngIf='loadPage && !loadError && (!suggestedjob || !suggestedjob.length)'>
+              no Recommended jobs for you Present
+            </h4>
+            <div *ngIf="loadError">
+              <div class="alert alert-danger">
+                {{error_text}}
+              </div>
+            </div>
+            <app-user-view-post *ngFor="let hrpost of suggestedjob | paginate: { itemsPerPage: 2, currentPage: p }" [hrpost]="hrpost" (userclick)="routeronclicked($event)"></app-user-view-post>
+          </div>
+
+          <div *ngIf="searchInfo">
+
+            <h2>Search results</h2>
+            <br>
+            <div *ngIf='!searchpage && !loadError'>
+              <h4>loading...... please wait</h4>
+              <span>
+                <img src="assets/loader.svg" height="64" alt="Nice green circle" />
+              </span>
+            </div>
+            <h4 *ngIf='searchpage && !loadError && (!searchData || !searchData.length)'>
+              no results for you search
+            </h4>
+            <app-user-view-post *ngFor="let hrpost of searchData | paginate: { itemsPerPage: 2, currentPage: p }" [hrpost]="hrpost" (userclick)="routeronclicked($event)"></app-user-view-post>
+          </div>
+
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        <!-- </div> -->
+      </div>
+
+  </div>
+
+  <div class="six wide column">
+    <div class="ui grid">
+      <div class="four wide column">
+
+      </div>
+      <div class="ten wide column">
+        <div class="ui piled segment">
+          <h4 class="ui header">Personal Skills</h4>
+          <p>Personal skills relate to how you express yourself. You can quickly tell the level of an individual’s personal skills by observing how they interact with others in the workplace and everyday life. A person with deficient personal skills isn’t easy to deal with, and their presence can cause a rift in a team. </p>
+        </div>
+        <div class="ui piled segment">
+          <h4 class="ui header">Soft Skills</h4>
+          <p>Soft skills relate less to your qualifications and more to the kind of individual you are. It is a fact that some people are better communicators, or are more patient than others. In the modern era, recruiters are often faced with dozens of candidates with similar qualifications. The CV review and interview processes can help them distinguish between applicants by analysing their soft skills. </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- 
+
+  
+  <br>
+ -->

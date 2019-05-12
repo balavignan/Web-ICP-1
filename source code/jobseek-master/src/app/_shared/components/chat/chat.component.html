@@ -1,0 +1,48 @@
+<div *ngIf='chatWindow' [ngClass]="{'chat-container-expand': x, 'chat-container-shrink': !x}" class="chat-container">
+  <div class="ab-header-chat">
+    {{receiver}}
+    <div class="ab-header-options">
+      <i [ngClass]="expandClass" class="icon" (click)="expandClicked();"></i>
+    </div>
+  </div>
+  <div id="chatBox" class="chat-box ui card">
+
+    <div [ngClass]="{'ab-message-left': message?.sender===receiver,'ab-message-right': message?.sender===sender}" *ngFor="let message of messageArray1;">
+      <!-- <span *ngIf="getDay(message?.created)" ></span> -->
+      <h4 style="color: #222">{{message?.sender}}</h4>
+      <div [ngClass]="{'ab-left': message?.sender===receiver,'ab-right': message?.sender===sender}" class="description">
+        {{message?.message}}
+      </div>
+      <div [ngClass]="{'left': message?.sender===receiver,'right': message?.sender===sender}" class="ab-createdAt">
+        {{getDayAndTime(message.created)}} At {{message?.created | date:'shortTime'}}
+      </div>
+    </div>
+    <div [ngClass]="{'ab-message-left': message?.sender===receiver,'ab-message-right': message?.sender===sender}" *ngFor="let message of messageArray">
+      <h4 style="color: #222">{{message?.sender}}</h4>
+      <div class="description">
+        {{message?.message}}
+      </div>
+      <div [ngClass]="{'left': message?.sender===receiver,'right': message?.sender===sender}" class="ab-createdAt">
+        {{getDayAndTime(message.created)}} At {{message?.created | date:'shortTime'}}
+      </div>
+    </div>
+  </div>
+  <div class="ui action input ab-message-input-box">
+    <input type="text" class="form-control ab-message-input" [(ngModel)]="messageText">
+    <button type="button" class="ab-button ui" (click)="sendMessage()">
+      <svg height='24' viewbox='0 0 24 24' width='24' style="fill: tomato">
+        <path d='M2.01 21L23 12 2.01 3 2 10l15 2-15 2z'></path>
+      </svg>
+    </button>
+
+  </div>
+</div>
+
+<div *ngIf="!chatWindow && initiator.isHr" class="ui segment">
+  <button type="button" (click)="sendInvite()">Send Invite</button>
+</div>
+<div class="ui segment" *ngIf="!chatWindow && initiator.isApplicant">
+  <p class="ui mesage error">
+    Please Check Your Invites.
+  </p>
+</div>

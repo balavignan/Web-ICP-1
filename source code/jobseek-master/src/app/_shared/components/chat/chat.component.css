@@ -1,0 +1,250 @@
+.ab-send {
+  visibility: hidden;
+}
+
+.ab-arrow {
+  visibility: visible;
+}
+
+/* .ab-arrow:hover {
+    visibility: hidden;
+    background: black;
+}
+
+.ab-arrow:hover ~ .ab-send {
+    visibility: visible;
+    background: black;
+} */
+
+.chat-container {
+    overflow: hidden;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    transition-duration: 200ms;
+    transform-style: preserve-3d;
+    transition-timing-function: ease-in-out;
+    transform-origin: top left;
+}
+
+.chat-container-shrink {
+  width: fit-content;
+  margin: auto 2em;
+  border: 1px solid;
+  width: 22em;
+  border-radius: .6em .6m 0em 0em;
+  float: right;
+  
+}
+
+.chat-container-expand {
+    margin: 1em auto;
+    width: 90%;
+}
+
+
+/* .chat-box {
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  height: 30em;
+  width: 22em;
+  padding: 1em 1em 1em 1em;
+  border: 0px transparent;
+  border-radius: 0em 0em 0em 0em;
+  overflow-x: hidden;
+  margin: 0px;
+  background-color: whitesmoke;
+} */
+
+.chat-box {
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    height: 31em;
+    width: 100%;
+    padding: 1em 1em 1em 1em;
+    border: 0px transparent;
+    overflow-x: hidden;
+    margin: 0px;
+    background-color: whitesmoke;
+}
+
+.ab-button:focus {
+  outline: none;
+}
+
+/* .ab-button {
+  border: 0px transparent;
+  width: 5em;
+  height: fit-content;
+  border-bottom-right-radius: 6px;
+  border-top-right-radius: 0px;
+  background-color: transparent;
+  margin-top: 2%;
+} */
+
+input:focus {
+  outline: none;
+  border: none;
+}
+
+.ng-inValid {
+  border: none;
+}
+
+.ng-valid {
+  border: none;
+}
+
+.ng-touched {
+  border: none;
+}
+
+/* .ab-message-input-box {
+    height: 3em;width: 22em;overflow: hidden;border-radius: 0px 6px 6px 0px;
+} */
+
+.ab-message-input-box {
+    height: 3em;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0px 6px 6px 0px;
+}
+
+/* .ab-message-input{
+    width:  fit-content;height: 3em;border: none;
+} */
+
+.ab-message-input{
+    width: fit-content;
+    height: 3em;
+    border: none;
+}
+
+.ab-button{
+    border: 0px transparent;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 0px;
+    background-color: transparent;
+    margin-top: 11px;
+    position: relative;
+    float: right;
+    right: 0%;
+    width: 6em;
+}
+
+
+
+/* .ab-header-chat {
+  position: relative;
+  background: linear-gradient(to left, #ff5e62, #ff9966);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+.ab-header-chat{
+    position: relative;
+    background: -webkit-gradient(linear, right top, left top, from(#ff5e62), to(#ff9966));
+    background: linear-gradient(to left, #ff5e62, #ff9966);
+    height: 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.ab-send-arrow {}
+
+.ab-message-left {
+  width: fit-content;
+  align-self: flex-start;
+  flex-direction: row;
+  word-wrap: break-word;
+  background: white;
+  color: #222222;
+  padding: 30px;
+  margin: 1em 0em;
+  font-family: 'Dosis', sans-serif !important;
+  border-radius: .6em .6em .6em 0em;
+}
+
+/* .ab-left.description::before{
+    position: absolute;
+    content: " ";
+    left: 5px;
+    /* bottom: 0; */
+
+/* border-right: solid 10px #b74545; */
+
+/* border-top: solid 10px transparent; */
+
+/* z-index: 0; */
+
+/* transform: translateY(61px); */
+
+/* } */
+
+.ab-message-right {
+  float: right;
+  width: fit-content;
+  background: linear-gradient(to left, #ff5e62, #ff9966);
+  color: white;
+  padding: 30px;
+  margin: 1em 0em;
+  border-radius: .6em .6em 0em .6em;
+  word-wrap: break-word;
+  text-align: right;
+  align-self: flex-end;
+}
+
+/* .ab-message-right:hover + .ab-createdAt.right {
+    background-color: black;
+} */
+
+/* .ab-message-right::after {
+    position: absolute;
+    content: " ";
+    right: 6px;
+    bottom: -12px;
+    border-left: solid 10px #ff5e62;
+    border-top: solid 10px transparent;
+    z-index: 0;
+} */
+
+.ab-createdAt.right {
+  background: transparent;
+  width: fit-content;
+  position: relative;
+  float: right;
+  bottom: -44px;
+  font-size: xx-small;
+  right: -18px;
+}
+
+.ab-createdAt.left {
+  background: transparent;
+  width: fit-content;
+  position: relative;
+  float: left;
+  bottom: -44px;
+  font-size: xx-small;
+  left: -18px;
+}
+
+.ab-header-options {
+  position: absolute;
+  right: 10px;
+}
+
+.ab-header-options>i:hover {
+  transform: scale(1.2);
+  transition-duration: 400ms;
+}

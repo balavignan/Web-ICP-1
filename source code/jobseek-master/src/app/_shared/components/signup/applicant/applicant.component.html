@@ -1,0 +1,218 @@
+<div class="ui secondary pointing menu sticky fixed top" style="background-color: #aca978;">
+  <a class="item" style="width: 44%;"></a>
+  <!-- <a class="item" style="color: white" [style.border-bottom]="personalInfo?'#222 solid':default"> -->
+  <a class="item" style="color: white" [style.border-bottom]="personalInfo?'#222 solid':default">
+    Personal Details
+  </a>
+  <a class="item" style="color: white" [style.border-bottom]="educationInfo?'#222 solid':default">
+  <!-- <a class="item" style="color: white" [style.border-bottom]="educationInfo?'#222 solid':default"> -->
+    Education
+  </a>
+</div>
+
+
+<div class="main ui container" style="position: absolute;background-image: url('assets/images/bg-images/signup_page_bg.png');width: 100%; height: 100%; overflow: auto;; background-size: cover;">
+  <div class="registration-applicant">
+    <div class="ui" style="float: left;" (click)="goBack()">
+      <span class="arrow left"></span>
+    </div>
+  </div>
+  <div class="ui very padded container segment" style=" margin-top: 5%;">
+
+    <form class="ui form" [formGroup]="applicantForm">
+      <div class="field">
+        <div class="two fields">
+          <div class="field">
+            <label>First Name
+              <span style='color:red'>*</span>
+            </label>
+            <input  autofocus type="text" formControlName="firstName" placeholder="First Name" [(ngModel)]="user_details.firstName">
+            <div *ngIf="applicantForm.controls['firstName'].touched&&!applicantForm.controls['firstName'].valid">
+              <p>Name need to be AtLeast 4 characters</p>
+            </div>
+          </div>
+          <div class="field">
+            <label>Last Name</label>
+            <input  type="text" formControlName="lastName" placeholder="Last Name" [(ngModel)]="user_details.lastName">
+          </div>
+        </div>
+        <div class="two fields">
+          <div class="field">
+            <label>Date Of Birth
+              <span style='color:red'>*</span>
+            </label>
+            <input type="date" formControlName="dob" placeholder="enter date of birth" [(ngModel)]="user_details.dob">
+            <div *ngIf="!applicantForm.controls['dob'].dirty && applicantForm.controls['dob'].touched">
+              <p>Date of Birth required</p>
+            </div>
+          </div>
+          <div class="field">
+            <label>Gender
+              <span style='color:red'>*</span>
+            </label>
+            <select class="ui fluid search dropdown" formControlName="gender" [(ngModel)]="user_details.gender">
+              <option value="">select your gender</option>
+              <option [value]='gender' *ngFor="let gender of genders">{{gender}}</option>
+            </select>
+            <div *ngIf="applicantForm.controls['gender'].touched&&!applicantForm.controls['gender'].valid">
+              <p>please fill required fields</p>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Mobile Number
+            <span style='color:red'>*</span>
+          </label>
+          <input type="number" formControlName="phone" placeholder="please enter your contact number" [(ngModel)]="user_details.phone">
+          <div *ngIf="applicantForm.controls['phone'].touched &&!applicantForm.controls['phone'].valid">
+            <p>enter a valid mobile number </p>
+          </div>
+        </div>
+        <div class="two fields">
+          <div class="field">
+            <label>Email
+              <span style='color:red'>*</span>
+            </label>
+            <input type="text" formControlName="email" placeholder="valid Email addresss" [(ngModel)]="user_details.email">
+            <div *ngIf="applicantForm.controls['email'].touched&&!applicantForm.controls['email'].valid">
+              <p>Enter a valid email address</p>
+            </div>
+          </div>
+          <div class="field">
+            <label>Password
+              <span style='color:red'>*</span>
+            </label>
+            <div class="ui icon input">
+              <input type={{inputType}} name="Password" formControlName="password" placeholder="create strong password" [(ngModel)]="user_details.password" (focus)='userExist()'>
+              <i [ngClass]="{red: !applicantForm.controls.password.valid, thumbs: !applicantForm.controls.password.valid, down:!applicantForm.controls.password.valid,green: applicantForm.controls.password.valid ,shield: applicantForm.controls.password.valid , alternate: applicantForm.controls.password.valid , icon:true}"></i>
+            </div>
+            <a href="javascript:void(0)" (click)="tooglepwd()">show/hide</a>
+            <div *ngIf="applicantForm.controls['password'].touched&&!applicantForm.controls['password'].valid">
+              <p>please create strong password</p>
+            </div>
+          </div>
+        </div>
+        <div class="two fields">
+          <div class="field">
+            <label>State
+              <span style='color:red'>*</span>
+            </label>
+            <select class="ui fluid search dropdown" formControlName="state" [(ngModel)]="user_details.state">
+              <option value="">select your state</option>
+              <option [value]='state' *ngFor="let state of states">{{state}}</option>
+            </select>
+            <div *ngIf="((user_details.state=='select your state')&&!applicantForm.controls['state'].valid)&&applicantForm.controls['state'].touched">
+              <p>please fill required fields</p>
+            </div>
+          </div>
+          <div class="field">
+            <label>city
+              <span style='color:red'>*</span>
+            </label>
+            <select class="ui fluid search dropdown" formControlName="city" [(ngModel)]="user_details.city">
+              <option value=''>select your city</option>
+              <option [value]='city' *ngFor="let city of cities">{{city}}</option>
+            </select>
+            <div *ngIf="applicantForm.controls['city'].touched&&((user_details.city=='select your city')&&!applicantForm.controls['city'].valid)">
+              <p>please fill required fields</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="two fields">
+        <div class="field">
+          <label>Address
+            <span style='color:red'>*</span>
+          </label>
+          <input type="text" formControlName="address" placeholder="enter your current Address" [(ngModel)]="user_details.address">
+          <div *ngIf="applicantForm.controls['address'].touched&&!applicantForm.controls['address'].valid">
+            <p>please fill required fields</p>
+          </div>
+        </div>
+        <!--<div class="field">
+          <label>Country
+            <span style='color:red'>*</span>
+          </label>
+          <input type="text" value="United States Of America">
+          &lt;!&ndash;<div *ngIf="applicantForm.controls['country'].touched&&!applicantForm.controls['country'].valid">
+            <p>please fill required fields</p>
+          </div>&ndash;&gt;
+        </div>
+        </div>-->
+          <div class="field">
+            <label>Country
+              <span style='color:red'>*</span>
+            </label>
+            <input type="text" formControlName="country" placeholder="enter your current country" [(ngModel)]="user_details.country">
+            <div *ngIf="applicantForm.controls['country'].touched&&!applicantForm.controls['country'].valid">
+              <p>please fill required fields</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field">
+            <label>Highest Qualification
+              <span style='color:red'>*</span>
+            </label>
+            <select class="ui fluid search dropdown" formControlName="higherDegreeValue_{{0}}" [(ngModel)]="user_details.education[0].higherDegreeValue" (focus)="infoChange()">
+              <option value="">Select your highest qualification</option>
+              <option [value]='i' *ngFor="let i of highestDegreeArray">{{i}}</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>University/College/school
+              <span style='color:red'>*</span>
+            </label>
+            <select class="ui fluid search dropdown" formControlName="universityName_{{0}}" [(ngModel)]="user_details.education[0].universityName" (focus)="infoChange()">
+              <option value="">Select your Institute Name</option>
+              <option [value]='i' *ngFor="let i of universityName">{{i}}</option>
+            </select>
+          </div>
+          <div class="two fields">
+            <div class="field">
+              <label>Passing Year
+                <span style='color:red'>*</span>
+              </label>
+              <select class="ui fluid search dropdown" formControlName="passingYearValue_{{0}}" [(ngModel)]="user_details.education[0].passingYearValue">
+                <option value="">Select passing year</option>
+                <option [value]='i' *ngFor="let i of yearArray">{{i}}</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Percentage/CGPA
+                <span style='color:red'>*</span>
+              </label>
+              <input type="text" placeholder="enter you percentage" formControlName="percentageValue_{{0}}" [(ngModel)]="user_details.education[0].percentageValue"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Skills
+            <span style='color:red'>*</span>
+          </label>
+          <select multiple="" formControlName="skillValue" class="ui fluid search dropdown" [(ngModel)]="user_details.skillValue">
+            <option value=''>select your skills</option>
+            <option [value]='i' *ngFor="let i of skills">{{i}}</option>
+          </select>
+          <div *ngIf="((user_details.skillValue.includes('select your skills'))&&!applicantForm.controls['skillValue'].valid )&& applicantForm.controls['skillValue'].touched">
+            <p>Please fill required fields</p>
+          </div>
+        </div>
+        <div class="ui toggle checkbox">
+          <input type="checkbox" name="public" formControlName='termsCheck'>
+          <label>I Agree to the
+            <a href="#">Terms and Conditions</a>
+          </label>
+          <div *ngIf="!applicantForm.controls['termsCheck'].valid&&applicantForm.controls['termsCheck'].touched">
+            <p>{{errorMsg}}*</p>
+          </div>
+        </div>
+        <div class='field'>
+          <button  auto-focus class="btn btn-success" (click)="onSubmit()" [disabled]="!applicantForm.valid">Sign Up</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

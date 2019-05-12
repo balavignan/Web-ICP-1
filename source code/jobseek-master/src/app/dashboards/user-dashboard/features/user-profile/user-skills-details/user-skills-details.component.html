@@ -1,0 +1,14 @@
+<div class="ui very padded container segment" >
+  <form [formGroup]="applicantSkillForm" class="ui form">
+    <h4 class="ui dividing header"></h4>
+     <div class="field">
+              <label>Skills</label>
+       <select class="ui fluid search dropdown" [(ngModel)]="userdata.skillValue" multiple="" formControlName="skills">
+          <option value="">Select</option>
+          <option  [value]='option' *ngFor="let option of skillsArray">{{option}}</option>
+        </select>
+    </div>
+    <button class="ui primary button" type="submit" (click)="updateUserSkill()"> Save </button>
+    <button class="ui button" (click)="discardClicked()"> Discard </button>
+  </form>
+</div>

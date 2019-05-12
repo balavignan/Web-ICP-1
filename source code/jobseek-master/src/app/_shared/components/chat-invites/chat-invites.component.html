@@ -1,0 +1,16 @@
+<div class="container" *ngIf="result">
+  <a routerLink="/chatInvites">
+      <button type="button" class="btn btn-primary" (click)='chatInvites()'>Chat Invites
+          <span class="badge" style="background-color:rgb(190,0,0)">{{noOfChatInvites.length}}</span>
+      </button>
+  </a>
+  <div *ngIf="show">
+      <div class="jumbotron" *ngFor="let chat of noOfChatInvites;let i=index">
+           <p>{{chat}}</p> 
+           <div class="ui two buttons">
+                  <button routerLink="/chat" type="button" class="btn btn-primary" (click)="accept(_id[i])">Accept</button>
+                  <button type="button" class="btn btn-primary" style="background-color:rgb(190,0,0)" (click)="decline(_id[i],i)">Decline</button>
+          </div>
+      </div>
+  </div> 
+</div>

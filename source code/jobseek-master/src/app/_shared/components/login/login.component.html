@@ -1,0 +1,52 @@
+<div class="login-div">
+  <div class="mid-body">
+    <div class="ui raised very padded text container segment">
+      <h1 class="h1-login">Login</h1>
+      <div class="ui middle aligned very relaxed stackable grid">
+        <div class="column">
+          <form class="ui form" [formGroup]="loginForm" >
+            <div class="field">
+              <label>Username</label>
+              <div class="ui left icon input">
+                <input  type="text" placeholder="Username" formControlName="username" >
+                <i class="user icon"></i>
+              </div>
+              <div *ngIf="loginForm.controls['username'].touched&&!loginForm.controls['username'].valid" class="alert alert-danger">
+                  <p>{{message.username.text}}</p>
+                </div>
+            </div>
+            <div class="field">
+              <label>Password</label>
+              <div class="ui left icon input">
+                <input type="password" placeholder="Password" formControlName="password" >
+                <i class="lock icon"></i>
+              </div>
+              <div *ngIf="loginForm.controls['password'].touched&&!loginForm.controls['password'].valid" class="alert alert-danger">
+                  <p>{{message.password.text}}</p>
+                </div>
+            </div>
+            <div class="field">
+              <button auto-focus class="ui tomato fluid submit button" [disabled]="!loginForm.valid" (click)="login()">login</button>
+            </div>
+
+            <div class="field">
+                <div class="ui toggle checkbox">
+                  <input type="checkbox" name="public" formControlName="isHr" value="">
+                    <label>I am an HR</label>
+                  </div>
+                </div>
+                
+            <div class="field">
+              <h4><a href="javascript:void(0)" (click)="forgetPassword()">Forgot your password?</a></h4>
+            </div>
+            </form>
+        </div>
+      </div>
+    </div>
+    <div class="ui container segment text middle text-center aligned padded">
+      New To JobSeek?
+      <a href="javascript:void(0)" (click)="signupButtonClicked()">Sign Up</a>
+    </div>
+  </div>
+</div>
+

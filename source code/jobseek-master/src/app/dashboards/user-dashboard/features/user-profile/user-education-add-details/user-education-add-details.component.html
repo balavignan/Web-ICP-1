@@ -1,0 +1,44 @@
+<div class="ui very padded container segment">
+  <form class="ui form" [formGroup]="applicantForm">
+
+    <div class="field">
+      <label>Highest Qualification
+        <span style="color:red">*</span>
+      </label>
+      <select formControlName="higherDegreeValue">
+        <option>Select your highest qualification</option>
+        <option *ngFor="let i of highestDegreeArray1">{{i}}</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>University/College/school
+        <span style="color:red">*</span>
+      </label>
+      <input type="text" placeholder="Institute Name" formControlName="universityName" />
+      <!-- <div class="alert alert-danger" *ngIf="!applicantForm.controls['universityName'].valid && applicantForm.controls['universityName'].touched">
+                          <p>Please fill required fields
+                            <span style="color:red">*</span>
+                          </p>
+                        </div> -->
+    </div>
+
+    <div class="field">
+      <label>Passing Year
+        <span style="color:red">*</span>
+      </label>
+      <select formControlName="passingYearValue">
+        <option>Select</option>
+        <option *ngFor="let i of yearArray">{{i}}</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Percentage
+        <span style="color:red">*</span>
+      </label>
+      <input type="text" placeholder="enter you percentage" formControlName="percentageValue" />
+    </div>
+    <button class="ui primary button" type="submit" [disabled]="applicantForm.invalid" (click)="onSubmit()"> Save </button>
+    <button class="ui button" (click)="discardClicked()"> Discard </button>
+
+  </form>
+</div>

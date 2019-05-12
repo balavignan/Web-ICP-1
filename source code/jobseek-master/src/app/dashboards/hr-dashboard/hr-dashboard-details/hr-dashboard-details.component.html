@@ -1,0 +1,220 @@
+<app-hr-header [hrdata]="hrdata"></app-hr-header>
+
+<div class="ui grid centered" style="margin-top: 2%;">
+  <div class="four wide ui segment column grid" style="padding-left: 0%; padding-right: 20px;">
+
+    <div class="row centered">
+      <div class="avatar-upload">
+        <div class="avatar-edit">
+          <input type="file" id="imageUpload" accept=".png, .jpg, .jpeg" (change)="updateProfilePicture($event.target.files)" />
+
+          <label for="imageUpload"></label>
+        </div>
+        <div class="avatar-preview">
+          <!-- <div  [ngStyle]="{background: 'url(http://localhost:3000/images/' + ')'}"></div> -->
+          <div id="imagePreview" [ngStyle]="{'background-image': profile_photo_for_viewing}"></div>
+          <!-- <div id="imagePreview" [ngStyle]="{background: 'url(http://localhost:3000/images/' + hrdata.profile_photo + ')'"></div>
+                       -->
+          <!-- {{"url(http://localhost:3000/images/" + {{hrdata.profile_photo}} + ")"}}> -->
+
+        </div>
+        <div class="container ui">
+          <a class="fr" (click)="EditPersonalDetails()" style="float: right;">Edit</a>
+        </div>
+      </div>
+    </div>
+    <div class="row centered">
+      <div class="segment fluid ui" style="width: 100%; border-color: tomato">
+        {{hrdata?.firstName}} {{hrdata?.lastName }}
+      </div>
+      <div class="ui container fluid">
+        <a class="ui teal image label">
+          <i class="at icon"></i>
+          <div class="detail">{{hrdata?.email}}</div>
+        </a>
+      </div>
+      <div class="ui container compact" style="width: fit-content; margin-top: 1em;">
+        <div class="ui celled list">
+          <div class="item">
+            <i class="mobile icon"></i>
+            {{hrdata?.phone}}
+          </div>
+          <div class="item">
+            <i class="birthday cake icon"></i>
+            {{hrdata?.dob | date: 'dd/MM/yyyy'}}
+          </div>
+          <div class="item">
+            <i class="home icon"></i>
+            {{hrdata?.address}}
+          </div>
+          <div class="item">
+            <i class="location arrow icon"></i>
+            {{(hrdata?.city + ', ' + hrdata?.state + ', ' + hrdata?.country) | removeExtraComma}}
+          </div>
+          <div class="item">
+            <label for="">Designation: </label>
+            {{hrdata?.designation}}
+          </div>
+          <div class="item">
+              <i class="suitcase icon"></i>
+            {{hrdata?.jobProfile}}
+          </div>
+          <div class="item">
+            <i [ngClass]="{mars: isMale, venus: isFemale, icon: true}"></i>
+            {{hrdata?.gender}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row centered">
+    </div>
+  </div>
+  <div class="eleven wide ui segment centered column grid" style="margin: 0 0 1em 1em;overflow: hidden;scroll-behavior: unset">
+    <div class="ui styled fluid accordion">
+      <!-- Experiences -->
+      <div class="active title" (click)="skillActive = false;">
+        <a class="fr float right" (click)="AddExperienceMore()">Add more Experiences</a>
+        <i class="dropdown icon"></i>
+        Experinces
+      </div>
+      <div class="active content">
+        <div class='panel panel-default' style="overflow: hidden;">
+          <div class="ui long panel-body" style="overflow-y: auto;margin: 0em -1em;padding: 1em 3em;height: 22em;">
+              <div *ngIf="hrdata?.experience.length === 0" class="ui compact message" style="margin: 8em auto;left: 42%;">
+                  <p>It's Time To add Some Experince</p>
+                </div>
+            <div *ngFor="let experience of hrdata?.experience; let i = index">
+              <a class="ui orange left ribbon label" (click)="editData(i, $event.target.innerText)">
+                {{ meme == i ? 'Save' : 'Edit'}}
+              </a>
+              <div *ngIf="expMain">
+                <a class="ui orange right ribbon label" (click)="deleteExperience(i);">Delete</a>
+                <div class="row">
+                  <div class="col-md-3">
+                    <h5>Profile Title</h5>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="ui input">
+                      <input *ngIf="meme == i" type="text" [(ngModel)]="hrdata.experience[i].designation">
+                    </div>
+                    <span *ngIf="!(meme == i)">{{hrdata.experience[i]?.designation}}</span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    <h5>Experience</h5>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="ui input">
+                      <input *ngIf="meme == i" type="text" [(ngModel)]="hrdata.experience[i].totalExperience">
+                    </div>
+                    <span *ngIf="!(meme == i)">{{hrdata.experience[i]?.totalExperience}}</span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    <h5>Description</h5>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="ui input">
+                      <input *ngIf="meme == i" type="text" [(ngModel)]="hrdata?.experience[i].description">
+                    </div>
+                    <span *ngIf="!(meme == i)">{{hrdata?.experience[i].description}}</span>
+                  </div>
+                </div>
+
+              </div>
+              <hr>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Experiences -->
+      <!-- Skills -->
+      <div class="title" (click)="skillActive = true;">
+        <a class="fr" (click)="EditSkills()">Edit</a>
+        <i class="dropdown icon"></i>
+        Skills I Preferably Watch For.
+      </div>
+      <div class="content">
+        <div class='panel panel-default'>
+          <div class="panel-body">
+            <div *ngIf="hrdata?.skillValue.length === 0" class="ui compact message" style="margin: 4em auto;left: 42%;">
+                <p>It's Time To add Some Experince</p>
+              </div>
+            <!-- <div *ngIf="hrdata?.skillValue.length === 0"> -->
+              <!-- <div class="ui input">
+                <select  *ngIf="meme1" class="ui fluid search dropdown" [(ngModel)]="hrdata.skillValue" multiple="" >
+                    <option value="">Select</option>
+                    <option *ngFor="let option of skillsArray">{{option}}</option>
+                  </select>
+                  </div> -->
+
+              <span>{{hrdata?.skillValue}}</span>
+            <!-- </div> -->
+          </div>
+        </div>
+      </div>
+      <!-- Skills -->
+    </div>
+    <div *ngIf="skillActive" [ngClass]="{'animated': true,'fadeInDown': skillActive }" class="ui info fluid message grid centered"
+      style="margin:8em 14em;position: absolute;">
+      {{qod}}
+    </div>
+  </div>
+</div>
+
+
+<hr>
+
+<div *ngIf="detailsOpen || expAdd || SkillsOpen" [ngClass]="{'ui': true, 'dimmer': true, 'modals': true, 'page': true, 'top': true, 'aligned': true, 'transition': true, 'visible': detailsOpen || ExpOpen || SkillsOpen, 'active': detailsOpen || ExpOpen || SkillsOpen}"
+  style="display: flex !important;">
+  <app-hr-details *ngIf="detailsOpen" (discardClick)="closeDetails($event)" (saveClick)="closeDetails($event)" [hrdata]="hrdata"></app-hr-details>
+  <app-hr-experience-add-details *ngIf="expAdd" (discardClick)="closeexp($event)" (saveClick)="closeexp($event)" [hrdata]="hrdata"></app-hr-experience-add-details>
+  <app-hr-skill *ngIf="SkillsOpen" (discardClick)="closeSkills($event)" (saveClick)="closeSkills($event)" [hrdata]="hrdata"></app-hr-skill>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+<hr>
+<hr>

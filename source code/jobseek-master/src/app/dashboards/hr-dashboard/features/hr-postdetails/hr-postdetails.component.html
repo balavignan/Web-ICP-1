@@ -1,0 +1,77 @@
+<app-hr-header [hrdata]="hrdata"></app-hr-header>
+<br>
+<div class="ui grid">
+  <div class="four wide column" style="background-color: rgb(100, 99, 99); height:750px">
+      <div *ngIf="postviewback">
+          <div style="margin-top: 30px; background-color: lightbalck">
+              <a (click)='postbackpage()'>
+                <h4 class="nav">Back</h4>
+               </a>
+          </div>
+      </div>
+    <div *ngIf="editviewback">
+        <div style="margin-top: 30px; background-color: lightbalck">
+            <a (click)='editbackpage()'>
+              <h4 class="nav">Back</h4>
+             </a>
+       </div>
+    </div>
+    
+    <div style="margin-top: 30px; background-color: lightbalck">
+      <a (click)='manageApplicant()'>
+        <h4 class="nav">{{textInfo}}</h4>
+      </a>
+    </div>
+    <!-- <div style="margin-top: 30px; background-color: lightbalck">
+      <a href="">
+        <h4 class="nav">Chating</h4>
+      </a>
+    </div> -->
+  </div>
+<div class="eight wide column">
+    <div *ngIf="postDetailsInfo">
+        <div class="" style="border: 2px solid lightgrey">
+          <div style="margin-top:20px">
+            <app-hr-postdetails-summary [hrpost]='hrpost'> </app-hr-postdetails-summary>
+          </div>
+        </div>
+    </div>
+    <div *ngIf="editpostDetailsInfo">
+      <div class="" style="border: 2px solid lightgrey">
+        <div style="margin-top:20px">
+          <app-hr-postdetails-edit-list [hrpost]="hrpost" (saveClick)="editbackpage()" ></app-hr-postdetails-edit-list>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+  <div class="four wide column">
+    <div style="border: solid 2px lightblue; margin-top:10px">
+      <div class="row">
+        <div class="col-md-7">
+          <h4>
+            <span class="glyphicon glyphicon-user"></span>
+            <br>Applicant Registered
+          </h4>
+        </div>
+        <div class="col-md-5" style="margin-top:15px">
+           <span class="glyphicon glyphicon-thumbs-up"></span>
+           <h2>{{hrpost?.applicants.length}}</h2>
+        </div>
+      </div>
+     
+    </div>
+    <div style="margin-top:10px">
+        <div class="row" >
+            <button class="btn btn-success" (click)="editpost()">Edit</button>
+          </div>
+    </div>
+    <div style="margin-top:10px">
+      <div class="row" >
+          <button class="btn btn-danger" (click)="deletepost()">Delete</button>
+        </div>
+  </div>
+  </div>
+</div>

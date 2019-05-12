@@ -1,0 +1,27 @@
+
+
+
+
+<div id="card">
+    <button class="btn btn-primary" (click)='userclicked()' style="
+    position: relative;
+    top: 11%;
+    right:  4%;
+    float:  right;
+  ">More Details</button>
+  <div id="content"><span><i class='building icon'></i>{{(hrpost?.companyname || 'NAN') | titlecase}}</span>
+    <h1>{{(hrpost?.title || 'NAN') | titlecase}}</h1>
+    <span class="glyphicon glyphicon-map-marker"></span> {{(hrpost?.location || 'NAN')| titlecase}}
+    <h3>Skills Required: <span>{{hrpost?.skills || 'NAN'}}</span></h3>
+    <div id="color-bar"></div>
+    <div class="detail">
+      <div class="circle">
+        <div class="left" style="background:#FA5964;"></div>
+        <div class="right" style="background:#FA3E4B;"></div>
+      </div>
+      <h2>Applicants Registered</h2><span id="hex">{{hrpost?.applicants.length || 0}}</span>
+    </div>
+    
+  </div>
+  
+</div>

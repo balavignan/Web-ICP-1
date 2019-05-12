@@ -1,0 +1,25 @@
+<app-hr-header [hrdata]="hrdata"></app-hr-header>
+<br>
+<div style="height: 100%;width: 100%; background-image: url('assets/images/bg-images/backjobpost.jpg');background-repeat: no-repeat;background-position: center;background-size: cover;position: absolute;margin: -4em auto;overflow: hidden;scroll-behavior: unset;">
+</div>
+<div class="ui grid" style="margin: 4em auto;">
+  <div class="three wide column">
+
+  </div>
+  <div class="ten wide column" style="border: 2px solid transparent;height: 50em; padding: 4em 9em;align-items: center;overflow-y: scroll;scroll-behavior: smooth;">
+    <br>
+    <div *ngIf='!loadPage && !loadError'>
+        <h4>loading...... please wait</h4>
+       <span> <img src="assets/loader.svg" height="64" alt="Nice green circle"/></span>
+    </div>
+    <h4 *ngIf='loadPage && !loadError && (!hrpost || !hrpost.length)'>
+        No jobs were posted by you
+    </h4>
+    <div *ngIf="loadError">
+        <div class="alert alert-danger">
+          {{error_text}}
+        </div>
+    </div>
+   <app-hr-post-list-summary *ngFor="let hrpos of hrpost" [hrpost]="hrpos" (userclick)="routeronclicked($event)"></app-hr-post-list-summary>
+  </div>
+</div>

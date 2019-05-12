@@ -1,0 +1,36 @@
+<app-hr-header [hrdata]='hrdata'></app-hr-header>
+   <div class='panel panel-default' style="max-width:900px">
+      <div class="panel-body">
+        <div style="float: left">
+          <h2>{{hrpost.title}}</h2>
+          <div>
+            <p><i class="building icon"></i> {{hrpost.companyname}}</p>
+          </div>
+          <div>
+            <p>
+              <span class="glyphicon glyphicon-map-marker"></span> {{hrpost.location}}
+            </p>
+          </div>
+          <div>
+            <h4>Skills Required:</h4>
+            <p>{{hrpost.skills}}</p>
+          </div>
+        </div>
+        <div style="float: right; padding-right:20px">
+          <div>
+              <h5>
+                  <span class="glyphicon glyphicon-user"></span>Applicants Registered
+                </h5>
+               <p><span class="glyphicon glyphicon-thumbs-up"></span>{{hrpost?.applicants.length}}</p>
+          </div>
+          <br>
+           <div>
+             <button class="btn btn-primary" (click)='userclicked()'>More Details</button>
+             <button class="btn btn-danger" (click)='deletePost()'>Delete</button>
+           </div>
+
+        </div> 
+
+      </div>
+
+    </div>
